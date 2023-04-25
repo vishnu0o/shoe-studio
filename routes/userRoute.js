@@ -4,7 +4,7 @@ const session = require('express-session')
 // const config = require("../config/config")
 const errorpage = require('../routes/404page')
 
-user_route.use(session({secret:process.env.sessionsecre,resave:false,saveUninitialized:true}))
+user_route.use(session({secret:process.env.sessionsecret,resave:false,saveUninitialized:true}))
 
 
 const auth = require('../middleware/auth')

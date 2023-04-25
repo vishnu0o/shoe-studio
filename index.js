@@ -38,7 +38,7 @@ app.use('/',error_route)
 app.use((err,req,res,next)=>{
    res.status()
 })
-
+console.log(process.env.port);
 app.listen(process.env.port,()=>{
     console.log('server is running....')
 })
