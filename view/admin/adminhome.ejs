@@ -1,0 +1,552 @@
+<%- include('../layout/adminheader.ejs') -%>
+<% if (orderreturned != 0) { %>
+  <script>
+    $(document).ready(function() {
+      $('#myModal').modal('show');
+    });
+
+    
+    // Set a timeout function to hide the modal after 3 seconds
+    setTimeout(function() {
+        $('#myModal').modal('hide');
+    }, 1000);
+    
+  </script>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content" style="background-color: lightgrey;">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger" id="exampleModalLabel">Notification
+                   
+                </h5>
+            </div>
+            <div class="modal-body text-danger ">
+               <h6><%=orderreturned %> <span style="color: black;">Return Confirmation is Pending </span> </h6>
+            </div>
+            
+        </div>
+    </div>
+
+  </div>
+<% } %>
+
+
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <br><br><br><br><br>
+  <h1 class="text-center">Hi Admin</h1>
+  <p class="text-center">This is Shoestudio Admin Pannel</p>
+  </div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col justify-content-between">
+        <p class="text-white mt-5 mb-5 d-flex justify-content-between">Welcome back, Admin </p>
+
+      </div>
+    </div>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <%if(dailySalesReport!=0){%>
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card bg-dark">
+              <div class="card-header p-3 pt-2 ">
+                <div
+                  class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10"></i>
+                </div>
+                <div class="text-end pt-1 text-white">
+                  <p class="text-sm mb-0 text-capitalize text-white">Today's Sales</p>
+                  <h4 class="mb-0">₹<%=dailySalesReport[0].totalSales%>
+                  </h4>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <p class="mb-0 text-white"><span class="text-success text-sm font-weight-bolder">
+                    <%=dailySalesReport[0].totalItemsSold%>
+                  </span> Producs sold today</p>
+              </div>
+
+
+
+            </div>
+          </div>
+          <%}else{%>
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+              <div class="card bg-dark">
+                <div class="card-header p-3 pt-2 ">
+                  <div
+                    class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10"></i>
+                  </div>
+                  <div class="text-end pt-1 text-white ">
+                    <p class="text-sm mb-0 text-capitalize text-white ">Today's Sales</p>
+                    <h4 class="mb-0">₹0</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0 text-white"><span class="text-success text-sm font-weight-bolder">0 </span> Products
+                    sold today</p>
+                </div>
+              </div>
+            </div>
+            <%}%>
+              <%if(weeklySalesReport!=0){%>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                  <div class="card text-white bg-dark">
+                    <div class="card-header p-3 pt-2">
+                      <div
+                        class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10"></i>
+                      </div>
+                      <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">This week collection</p>
+                        <h4 class="mb-0">₹ <%= weeklySalesReport[0].totalSales %>
+                        </h4>
+                      </div>
+                    </div>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-3">
+                      <p class="mb-0"><span class="text-success text-sm font-weight-bolder">
+                          <%= weeklySalesReport[0].totalItemsSold%>
+                        </span> Products sold this week</p>
+                    </div>
+                  </div>
+                </div>
+                <%}else{%>
+                  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card text-white bg-dark">
+                      <div class="card-header p-3 pt-2">
+                        <div
+                          class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                          <i class="material-icons opacity-10"></i>
+                        </div>
+                        <div class="text-end pt-1">
+                          <p class="text-sm mb-0 text-capitalize">This week collection</p>
+                          <h4 class="mb-0">₹ 0
+                          </h4>
+                        </div>
+                      </div>
+                      <hr class="dark horizontal my-0">
+                      <div class="card-footer p-3">
+                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">
+                            0
+                          </span> Products sold this week</p>
+                      </div>
+                    </div>
+                  </div>
+                  <%}%>
+                    <%if(yearlySalesReport!=0){%>
+                      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                        <div class="card text-white bg-dark">
+                          <div class="card-header p-3 pt-2">
+                            <div
+                              class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                              <i class="material-icons opacity-10"></i>
+                            </div>
+                            <div class="text-end pt-1">
+                              <p class="text-sm mb-0 text-capitalize">Yearly sales report</p>
+                              <h4 class="mb-0">₹ <%= yearlySalesReport[0].totalSales%>
+                              </h4>
+                            </div>
+                          </div>
+                          <hr class="dark horizontal my-0">
+                          <div class="card-footer p-3">
+                            <p class="mb-0"><span class="text-success text-sm font-weight-bolder">
+                                <%= yearlySalesReport[0].totalItemsSold %>
+                              </span> Products sold this year</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <%}else{%>
+                        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                          <div class="card text-white bg-dark">
+                            <div class="card-header p-3 pt-2">
+                              <div
+                                class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                <i class="material-icons opacity-10"></i>
+                              </div>
+                              <div class="text-end pt-1">
+                                <p class="text-sm mb-0 text-capitalize">Yearly sales report</p>
+                                <h4 class="mb-0">₹ 0
+                                </h4>
+                              </div>
+                            </div>
+                            <hr class="dark horizontal my-0">
+                            <div class="card-footer p-3">
+                              <p class="mb-0"><span class="text-danger text-sm font-weight-bolder">
+                                  0
+                                </span> Products sold this year</p>
+                            </div>
+                          </div>
+                        </div>
+                        <%}%>
+                          <div class="col-xl-3 col-sm-6">
+                            <div class="card text-white bg-dark">
+                              <div class="card-header p-3 pt-2">
+                                <div
+                                  class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                  <i class="material-icons opacity-10"></i>
+                                </div>
+                                <div class="text-end pt-1">
+                                  <p class="text-sm mb-0 text-capitalize">Users</p>
+                                  <h4 class="mb-0">
+                                    <%=usersLength%>
+                                  </h4>
+                                </div>
+                              </div>
+                              <hr class="dark horizontal my-0">
+                              <div class="card-footer p-3">
+                                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">50% </span> than
+                                  previous month</p>
+                              </div>
+                            </div>
+                          </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div class="row tm-content-row">
+
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+        <div class="tm-bg tm-block" style="background-color: rgb(42, 55, 67);">
+          <h2 class="tm-block-title">Daily Sales</h2>
+          <canvas id="lineChart"></canvas>
+          <button class="" style="background: none; border: none; position: relative; bottom: 20px;"
+            onclick="downloadlineChart()"><i class="bi bi-download"></i></button>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+        <div class="tm-bg-primary-dark tm-block" style="background-color: rgb(42, 55, 67);">
+          <h2 class="tm-block-title">Total Payments</h2>
+          <canvas style="margin: 0 auto;" id="piechart"></canvas>
+          <button class="" style="background: none; border: none;" onclick="downloadpieChart()"><i
+              class="bi bi-download"></i></button>
+        </div>
+
+
+        <script>
+          var orders = '<%= JSON.stringify(order) %>';
+          const dataa = JSON.parse(orders.replace(/&#34;/g, '"'));
+          console.log(dataa);
+          console.log('23456789');
+
+          const ctxx = document.getElementById('piechart');
+          var myChart = new Chart(ctxx, {
+            type: 'pie',
+            data: {
+              labels: ['COD', 'razorpay', 'wallet'],
+              datasets: [{
+                label: 'Mode of Payment',
+                data: [dataa[0].codCount, dataa[0].razorpayCount, dataa[0].wallet],
+                backgroundColor: [
+                  'teal',
+                  'grey',
+                  'brown'
+                ],
+
+                borderWidth: 1
+              }]
+            },
+            options: {
+              // ...
+            }
+          });
+          function downloadpieChart() {
+            var chartCanvas = document.getElementById('piechart');
+            var dataURL = chartCanvas.toDataURL('image/png');
+            var link = document.createElement('a');
+            link.download = 'chart.png';
+            link.href = dataURL;
+            link.click();
+          }
+        </script>
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+  </div>
+  </div>
+  </body>
+  <%if(message){%>
+    <script>
+      new Swal({
+        title: "Success",
+        text: "<%=message%>",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 2000
+      });
+    </script>
+
+    <%}%>
+
+      <script>
+
+        const daily = '<%= JSON.stringify(dailySalesDetails) %>';
+        const data = JSON.parse(daily.replace(/&#34;/g, '"'));
+        // Create an array of days in the current month
+        const currentDate = new Date();
+        const currentDay = currentDate.getDate();
+        const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+        const daysArray = Array.from({ length: daysInMonth }, (_, i) => i);
+
+        const totalSalesArray = daysArray.map(day => {
+          const matchingData = data.find(d => new Date(d.date).getDate() === day);
+          console.log(matchingData);
+          if (day <= currentDay) {
+            return matchingData ? matchingData.totalSales : 0;
+          } else {
+            return null;
+          }
+        });
+        console.log(totalSalesArray);
+
+
+        const ctx = document.getElementById('lineChart');
+        ctx.width = 600;
+        ctx.height = 200;
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: daysArray,
+            datasets: [{
+              label: 'Total Sales',
+              data: totalSalesArray,
+              borderWidth: 2,
+              borderColor: 'red',
+              backgroundColor: 'red',
+              tension: 0.4
+            }]
+
+          }, options: {
+            plugins: {
+              title: {
+                display: true,
+                text: 'Daily Sales',
+                font: {
+                  size: 18,
+                  weight: 'bold',
+                }
+              },
+              legend: {
+                labels: {
+                  font: {
+                    color: 'white',
+                    weight: 'bold',
+                  }
+                }
+              }
+            }
+          },
+
+          options: {
+            scales: {
+              y: {
+                ticks: {
+                  color: 'white',
+                  beginAtZero: true,
+                  stepSize: 1000,
+                  max: 10000,
+                  font: {
+                    size: 14,
+                    color: '#555'
+                  }
+                },
+
+                title: {
+                  display: true,
+                  text: 'Daily Sales',
+                  color: 'red',
+
+
+                },
+                grid: {
+                  color: 'grey'
+                }
+              },
+              x: {
+                ticks: {
+                  color: 'white',
+                  font: {
+                    size: 14,
+
+                  }
+                },
+                title: {
+                  display: true,
+                  text: 'Daily Sales',
+                  color: 'red',
+                },
+                grid: {
+                  color: 'grey',
+                  display: true
+                }
+              }
+            }
+          }
+        });
+
+        function downloadlineChart() {
+          var chartCanvas = document.getElementById('lineChart');
+          var dataURL = chartCanvas.toDataURL('image/png');
+          var link = document.createElement('a');
+          link.download = 'chart.png';
+          link.href = dataURL;
+          link.click();
+        }
+
+
+      </script>
+
+
+
+
+
+
+      <!-- order List -->
+
+
+
+      <div id="page">
+        <div class="container">
+          <div class="mt-5 ">
+            <h4>Orders List</h4>
+          </div>
+        </div>
+        <section class="mt-5 mb-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12" style="overflow-y: scroll; ">
+                <table class="table table-striped" id="user-table" style=" overflow-y: scroll;">
+                  <thead>
+                    <tr>
+                      <th scope="col">Order ID & Date</th>
+                      <th scope="col">Total Bill</th>
+                      <th scope="col">Payment Method</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Details</th>
+
+
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <% orderData.forEach(element=> {
+
+
+
+                      for( let i = 0; i < 1; i++ ) { %>
+
+
+                        <tr>
+
+                          <td scope="row">
+                            <div>Order ID :<%=element._id%>
+                            </div>
+                            <div>Date :<%=new Date(element.order[i].date).toLocaleDateString('en-GB')%>
+                            </div>
+
+                          </td>
+
+
+                          <td>
+                            <div>₹ <%=element.grandtotal %>
+                            </div>
+
+                          </td>
+
+                          <td>
+                            <div style="padding-left: 5px;">
+                              <%=element.order[i].paymentmethod %>
+                            </div>
+                          </td>
+                          <td>
+
+                            <div><br>
+                              <%=element.order[i].status %>
+                            </div>
+                          </td>
+
+                          <td><a href="/admin/orderdetails?id=<%=element._id%>" class="btn btn-primary">Details</a></td>
+                        </tr>
+                        <% } %>
+                          <% }); %>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <nav aria-label="Page navigation example" style="display: flex; justify-content: center;">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <% for(i=1;i<=totalPage;i++){ %>
+              <% if(currentPage==i){ %>
+                <li class="page-item active"><a class="page-link" href="/admin/home?currentpage=<%= i %>">
+                    <%= i %>
+                  </a></li>
+                <%}else{ %>
+                  <li class="page-item"><a class="page-link" href="/admin/home?currentpage=<%= i %>">
+                      <%= i %>
+                    </a></li>
+                  <%}%>
+                    <% }%>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+          </ul>
+        </nav>
+
+
+
+
+
+        <script>
+
+
+         function notification(){
+          $('.toast').toast('show');
+         }
+          </script>
+
+        
+
+
+        < <%- include('../layout/adminfooter.ejs') -%>

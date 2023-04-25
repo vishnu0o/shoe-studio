@@ -1,0 +1,34 @@
+
+<%- include('../layout/adminheader.ejs') -%>
+
+<div class="container tm-mt-big tm-mb-big">
+
+<div class="col-lg-6  mx-auto tm-login-col">
+    <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="tm-block-title mb-4">To add Category</h2>
+
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <form id="formcategory" action="/admin/editcategory?id=<%=category._id%>" method="post" class="tm-login-form">
+            <div class="form-group mt-3">
+              <label for="password">Category</label>
+              <input name="category" type="text" value="<%=category.categoryname%>" class="form-control validate" id="category" />
+              <span class="error text-danger" id="category-error" style="font-size: 12px;"></span>
+              <span class="error text-danger" id="already_exist" style="font-size: 12px;"></span>
+            </div>
+            <div class="form-group mt-4">
+              <button id="submit-button" type="submit" class="btn btn-primary btn-block text-uppercase">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <%- include('../layout/adminfooter.ejs') -%>

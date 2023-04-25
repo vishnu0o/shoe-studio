@@ -1,0 +1,157 @@
+<%- include ('../layout/header.ejs') %>
+
+
+<style>
+    .height-100 {
+    height: 100vh
+}
+
+.card {
+    width: 400px;
+    border: none;
+    height: 300px;
+    box-shadow: 0px 5px 20px 0px #252424;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.card h6 {
+    color: rgb(0, 0, 0);
+    font-size: 20px
+}
+
+.inputs input {
+    width: 40px;
+    height: 40px
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0
+}
+
+.card-2 {
+    background-color: #252424;
+    padding: 10px;
+    width: 350px;
+    height: 100px;
+    bottom: -50px;
+    left: 20px;
+    position: absolute;
+    border-radius: 5px
+}
+
+.card-2 .content {
+    margin-top: 50px
+}
+
+.card-2 .content a {
+    color: rgb(0, 0, 0)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 2px solid rgb(0, 0, 0)
+}
+
+.validate {
+    border-radius: 20px;
+    height: 40px;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    width: 140px
+}
+.resend {
+     border-radius:10px ;
+     height: 40px;
+     width: 104px;
+     background-color: rgb(204, 52, 52);
+     border: 1px solid rgb(204, 52, 52); ;
+}
+</style>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+
+function OTPInput() {
+const inputs = document.querySelectorAll('#otp > *[id]');
+for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function(event) { if (event.key==="Backspace" ) { inputs[i].value='' ; if (i !==0) inputs[i - 1].focus(); } else { if (i===inputs.length - 1 && inputs[i].value !=='' ) { return true; } else if (event.keyCode> 47 && event.keyCode < 58) { inputs[i].value=event.key; if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } else if (event.keyCode> 64 && event.keyCode < 91) { inputs[i].value=String.fromCharCode(event.keyCode); if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); } } OTPInput(); });
+</script>
+
+
+
+
+<div class="container height-100 d-flex justify-content-center align-items-center">
+    <div class="position-relative">
+        <div class="card p-2 text-center">
+            <h6>Please enter the one time password <br> to verify your account</h6>
+            <div> <span>A code has been sent to</span> <small>you email id</small> </div>
+            <form action="/otpenter" method="post">
+            <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> 
+              
+                <input class="m-2 text-center form-control rounded" name="otp" type="text" id="first" maxlength="1" /> 
+                <input class="m-2 text-center form-control rounded" name="otp" type="text" id="second" maxlength="1" /> 
+                <input class="m-2 text-center form-control rounded"name ='otp' type="text" id="third" maxlength="1" /> 
+                <input class="m-2 text-center form-control rounded" name="otp" type="text" id="fourth" maxlength="1" />
+                 <input class="m-2 text-center form-control rounded" name="otp" type="text" id="fifth" maxlength="1" />
+                  <input class="m-2 text-center form-control rounded" name="otp" type="text" id="sixth" maxlength="1" /> </div>
+             
+            <div class="mt-4"> <button class="btn btn-danger px-4 validate"  id="otp-submit" type="submit">Validate</button> </div>
+            <div class="mt-4">  <a href="/resend" class="btn btn-danger px-4 resend"  id="myBtn">Resend </a></div>
+            <span style="color: red;">your otp expires at:</span><span id="otp-countdown" style="color: red;"></span>
+
+
+        </form>
+        </div>
+    </div>
+</div>
+<% if(message !=null ) {%>
+    <script>
+      swal({  
+        title: "Alert",  
+        text: "<%=message%>",  
+        icon: "warning",  
+        button: "oh yes!",
+          
+      });  
+    </script>
+
+<% } %>
+
+<script>
+// Countdown timer
+let countdown = 60; 
+
+function updateCountdown() {
+  let minutes = Math.floor(countdown / 60);
+  let seconds = countdown % 60;
+  let formatted = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  document.getElementById('otp-countdown').innerHTML = formatted;
+  countdown--;
+  if (countdown < 0){
+    clearInterval(countdownInterval);
+    document.getElementById("myBtn").disabled = false;
+  }
+  else{
+    document.getElementById("myBtn").disabled = true;
+
+  }
+}
+
+let countdownInterval = setInterval(updateCountdown, 1000);
+
+// Live counter
+let socket = io(); // initialize socket.io connection
+
+socket.on('otpCount', count => {
+  document.getElementById('otp-counter').innerHTML = count;
+});
+
+</script>
+<%- include ('../layout/footer.ejs') %>

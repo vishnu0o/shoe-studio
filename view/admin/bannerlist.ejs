@@ -1,0 +1,110 @@
+<%- include('../layout/adminheader.ejs') -%>
+
+  
+
+  <div class="container mt-5">
+    <div class="row tm-content-row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+        <div class="tm-bg-primary-dark tm-block tm-block-products">
+          <div class="tm-product-table-container">
+            <table class="table table-hover tm-table-small tm-product-table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Bnner Imge</th>
+                  <th scope="col"> Banner Name</th>
+                  <th scope="col">Action</th>
+                 
+                </tr>
+              </thead>
+           
+              <tbody id=" <%=bannerdetails._id%> %>">
+                <%  for( let i=0;i<bannerdetails.length;i++){ %>
+                <tr id="<%=i%>x">
+                  <th scope="row"><%=i+1%></th>
+                  <td class="tm-product-name"><img src="/productimages/<%=bannerdetails[i].images[0]%>" alt="" width="130" height="109" ></td>
+                  <td><%=bannerdetails[i].header%></td>
+                 <td>
+                    <button onclick="deletebanner('<%=bannerdetails[i]._id%>','<%=i%>')"  class="tm-product-delete-link"  >
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                       </button>
+                       <a href="/admin/editbanner?id=<%=bannerdetails[i]._id%>"  class="tm-product-delete-link"  >
+                        <i class="fa-sharp fa-solid fa-pen-to-square tm-product-delete-icon" style="color: rgba(255, 255, 255, 0.79);"></i>
+                      </a>
+
+                </td>
+                    
+                </td>
+                 
+                </tr>
+              
+              </tbody>
+              <% } %>
+            </table>
+          </div>
+          <!-- table container -->
+          <a href="/admin/banner" class="btn btn-primary btn-block text-uppercase mb-3">Add new Banner</a>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <footer class="tm-footer row tm-mt-small">
+    <div class="col-12 font-weight-light">
+      <p class="text-center text-white mb-0 px-4 small">
+        Copyright &copy; <b>2018</b> All rights reserved.
+
+        Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    $(function () {
+      $(".tm-product-name").on("click", function () {
+        window.location.href = "edit-product.html";
+      });
+    });
+  </script>
+
+
+  <script>
+    
+    function deletebanner(productId,i) {
+      $.ajax({
+        type: "GET",
+        url: `/admin/deletebanner?id=${productId}`,
+        success: function (response) {
+            console.log($(`#${i}x`));
+            $(document).ready(()=>{
+                $(`#${i}x`).hide()
+            })
+          
+          if (response.success == false) {
+           
+            swal({
+              title: "Good job!!",
+              text: response.message,
+              icon: "success",
+              button: "oh yes!",
+            });
+            // const divToRemove = document.getElementById(productId);
+            // divToRemove.remove();
+           
+          }
+          else {
+            swal({
+              title: "Alert!",
+              text: response.message,
+              icon: "warning",
+              button: "oh yes!",
+            });
+          }
+        },
+        // handle successful response
+
+
+      });
+    }
+  </script>
+  <%- include('../layout/adminfooter.ejs') -%>

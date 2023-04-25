@@ -1,0 +1,845 @@
+<%- include ('../layout/homeheader.ejs',{loginsession}) %>
+
+
+
+    <style>
+        @font-face {
+            font-family: "Nike TG";
+            font-style: normal;
+            font-weight: 400;
+            src: url(./fontsstyle/Nike-TG.woff2) format('woff2'), url(./fontsstyle/Nike-TG.woff) format('woff'), url(./fontsstyle/Nike-TG.ttf) format('truetype')
+        }
+
+        @font-face {
+            font-family: "Nike Futura";
+            font-style: normal;
+            font-weight: 400;
+            src: url(./fontsstyle/Nike-Futura.woff2) format('woff2'), url(./fontsstyle/Nike-Futura.woff) format('woff'), url(./fontsstyle/Nike-Futura.ttf) format('truetype')
+        }
+
+        .error {
+            font-size: 12px;
+            color: rgb(255, 0, 0);
+        }
+
+
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+
+
+
+        .card-coupon {
+            width: 400px;
+            margin-top: 10px;
+            height: 180px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            padding: 10px 14px;
+            position: relative;
+        }
+
+        .main,
+        .copy-button {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            align-items: center;
+        }
+
+
+        .co-img img {
+            width: 100px;
+            height: 100px;
+        }
+
+
+        .content h1 {
+            font-size: 35px;
+            margin-left: -20px;
+            color: #565656;
+        }
+
+        .content h1 span {
+            font-size: 18px;
+        }
+
+        .content h2 {
+            font-size: 18px;
+            margin-left: -20px;
+            color: #565656;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            font-size: 16px;
+            color: #696969;
+            margin-left: -20px;
+        }
+
+        .copy-button {
+            margin: 12px 0 -5px 0;
+            height: 45px;
+            border-radius: 4px;
+            padding: 0 5px;
+            border: 1px solid #e1e1e1;
+        }
+
+        .copy-button input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .copy-button button {
+            padding: 5px 20px;
+            background-color: #000000;
+            color: #fff;
+            border: 1px solid transparent;
+        }
+
+        .buy {
+            position: absolute;
+            content: "";
+            bottom: 20px;
+            left: 20px;
+            background-color: #000000;
+        }
+
+
+
+
+
+        /* address modal style */
+
+
+
+
+        .coupencard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+        }
+
+        .coupenimage {
+            margin-bottom: 10px;
+        }
+
+        .coupenimage2 {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .coupen-d-block {
+            margin-bottom: 10px;
+        }
+
+        .mt-4 {
+            margin-top: 20px;
+        }
+
+        .card-text {
+            font-size: 16px;
+            font-family: cursive;
+            color: #000000;
+            font-weight: 400;
+            line-height: 26px;
+            margin: 0 0 15px 0;
+        }
+    </style>
+
+    <!-- 
+    Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+
+
+
+
+
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Fresh Meat</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Fruit & Nut Gifts</a></li>
+                            <li><a href="#">Fresh Berries</a></li>
+                            <li><a href="#">Ocean Foods</a></li>
+                            <li><a href="#">Butter & Eggs</a></li>
+                            <li><a href="#">Fastfood</a></li>
+                            <li><a href="#">Fresh Onion</a></li>
+                            <li><a href="#">Papayaya & Crisps</a></li>
+                            <li><a href="#">Oatmeal</a></li>
+                            <li><a href="#">Fresh Bananas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    All Categories
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+65 11.188.888</h5>
+                                <span>support 24/7 time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+
+
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+            <div class="row" style="display: flex; justify-content: center; margin-bottom: 65px;">
+                <h1 style="font-family: 'Nike Futura','Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 46px;">
+                    Check out </h1>
+
+            </div>
+            <div class="checkout__form">
+
+                <h4>Billing Details</h4>
+
+
+                <form action="/placeorder?grand=<%=cartdetails.cart[0].grandtotal%>" method="post" id="orderform">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Fist Name<span>*</span></p>
+                                        <% if (address[0]){ %>
+                                            <input type="text" value="<%= address[0].name %>" id="name" name="name">
+                                            <span class="error" id="name-error"></span>
+                                            <% }else{ %>
+                                                <input type="text" id="name" name="name">
+                                                <span class="error" id="name-error"></span>
+                                                <% } %>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="checkout__input">
+                                <p>Country<span>*</span></p>
+                                <% if(address[0]){%>
+                                    <input type="text" value="<%= address[0].townCity %>" id="country" name="country">
+                                    <span class="error" id="country-error"></span>
+                                    <%}else{%>
+                                        <input type="text" id="country" name="country">
+                                        <span class="error" id="country-error"></span>
+                                        <% } %>
+
+                            </div>
+                            <div class="checkout__input">
+                                <p>Address<span>*</span></p>
+                                <%if(address[0]){%>
+                                    <input type="text" value="<%= address[0].houseName %>" id="house" name="house">
+                                    <span class="error" id="house-error"></span>
+                                    <%}else{%>
+                                        <input type="text" placeholder="Street Address" class="checkout__input__add"
+                                            id="house" name="house">
+                                        <span class="error" id="house-error"></span>
+                                        <%}%>
+                            </div>
+                            <div class="checkout__input">
+                                <p>District<span>*</span></p>
+                                <%if(address[0]){%>
+                                    <input type="text" value="<%= address[0].district %>" id="district" name="district">
+                                    <span class="error" id="district-error"></span>
+
+                                    <%}else{%>
+                                        <input type="text" id="district" name="district">
+                                        <span class="error" id="district-error"></span>
+
+                                        <%}%>
+                            </div>
+                            <div class="checkout__input">
+                                <p>State<span>*</span></p>
+                                <%if(address[0]){%>
+                                    <input type="text" value="<%= address[0].state %>" id="state" name="state">
+                                    <span class="error" id="state-error"></span>
+
+                                    <%}else{%>
+
+                                        <input type="text" id="state" name="state">
+                                        <span class="error" id="state-error"></span>
+
+                                        <%}%>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Postcode <span>*</span></p>
+                                <%if(address[0]){%>
+                                    <input type="text" value="<%= address[0].pincode %>" id="pincode" name="pincode">
+                                    <span class="error" id="house-error"></span>
+
+                                    <%}else{%>
+                                        <input type="text" id="pincode" name="pincode ">
+                                        <span class="error" id="pincode-error"></span>
+
+                                        <%}%>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Phone<span>*</span></p>
+                                        <%if(address[0]){%>
+                                            <input type="text" value="<%= address[0].mobileNo %>" id="phone"
+                                                name="phone">
+                                            <span class="error" id="phone-error"></span>
+
+                                            <%}else{%>
+                                                <input type="text" id="phone" name="phone">
+                                                <span class="error" id="phone-error"></span>
+
+                                                <%}%>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Email<span>*</span></p>
+                                        <%if(address[0]){%>
+                                            <input type="text" value="<%= address[0].email %>" id="email" name="email">
+                                            <span class="error" id="email-error"></span>
+
+                                            <%}else{%>
+                                                <input type="text" id="email" name="email">
+                                                <span class="error" id="email-error"></span>
+
+                                                <%}%>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row " style=" display: flex; justify-content: space-between;">
+                                <div>
+                                    <button class=" site-btn" data-toggle="modal" data-target="#myModal" style="font-family: 'Nike Futura','Helvetica Neue',Helvetica,Arial,sans-serif; color: white; border-radius: 50px;  background-color: black; width: 318px;
+                                height: 53px; " type="button">Select Addreess</button>
+                                    <a href="/addaddress"> <button class=" site-btn" data-toggle="modal"
+                                            data-target="#myModal" style="font-family: 'Nike Futura','Helvetica Neue',Helvetica,Arial,sans-serif; color: white; border-radius: 50px;  background-color: black;     width: 318px;
+                            height: 53px;" type="button">Add Addreess</button></a>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog ">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        </div>
+
+
+                                        <div class="modal-body">
+
+                                            <div class="d-flex align-items-center coupenbody "
+                                                style=" overflow-x:scroll;scroll-behavior: smooth;background-color: darkgray;  ">
+
+                                                <%for(let i=0; i<cartdetails.address.length;i++){%>
+                                                    <div class=" d-flex coupencard text-center p-4 m-4 col-12"
+                                                        style="box-shadow: 4px 4px 4px 4px rgb(57, 75, 75) ;min-width: 53%;">
+
+
+                                                        <p class="card-text">
+                                                            <%=cartdetails.address[i].name%> <br>
+
+
+                                                                <%=cartdetails.address[i].houseName%>
+
+
+                                                                    <%=cartdetails.address[i].townCity%>
+
+
+                                                                        <%=cartdetails.address[i].district%>
+
+
+                                                                            <%=cartdetails.address[i].state%>
+
+
+                                                                                <%=cartdetails.address[i].pincode%>
+
+
+                                                                                    <%=cartdetails.address[i].mobileNo%>
+
+
+                                                                                        <%=cartdetails.address[i].email%>
+                                                        </p>
+
+                                                        <div> <a href="/checkout?id=<%=cartdetails.address[i]._id %>"
+                                                                style="    background-color: black;
+                                            color: #fff;
+                                            width: 115px;
+                                            margin-left: 16px;
+                                            border-radius: 50px;     border: 1px solid white;" class="btn  "> select
+                                                            </a></div>
+
+
+
+
+                                                    </div>
+
+                                                    <%}%>
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <% if(cartdetails.cart.length !=0 ){ %>
+                                    <h4>Your Order</h4>
+                                    <div class="checkout__order__products">Products <span>Total</span></div>
+                                    <ul>
+                                        <% for( let i=0; i < cartdetails.cart.length; i++ ) { %>
+
+
+                                            <li>
+                                                <%=cartdetails.cart[i].product.product_name %> <span>₹
+                                                        <%=cartdetails.cart[i].totalprice%>
+                                                    </span>
+                                            </li>
+                                            <% } %>
+                                    </ul>
+                                    <div class="checkout__order__subtotal">Subtotal <span id="total">
+                                            <%=cartdetails.cart[0].grandtotal %>
+                                        </span></div>
+
+                                    <div class="checkout__order__subtotal">Discount <span>%</span><span
+                                            id="percentage"></span></div>
+                                    <div class="checkout__order__total">Total<span id="grandTotal">
+                                            <%=cartdetails.cart[0].grandtotal%>
+                                        </span><span>₹</span></div>
+
+                                    <% if(userdetails.wallet>=cartdetails.cart[0].grandtotal) {%>
+                                        <span class="checkout__order__subtotal">Wallet Balance: </span>
+                                        <span id="total">₹<%=userdetails.wallet %></span>
+                                        <br>
+                                        <% }else{ %>
+
+                                            <span class="checkout__order__subtotal">Wallet Balance:</span>
+                                            <span id="total" class=" text-danger">Insufficient Balance</span><br>
+                                            <% } %>
+                                                <br>
+
+                                                <span class="error" id="payment-error"></span>
+
+                                                <div class="checkout__input__checkbox">
+                                                    <label for="payment">
+                                                        Cash on delivery
+                                                        <input type="radio" name="payment" value="cod" id="payment">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="checkout__input__checkbox">
+                                                    <label for="paypal">
+                                                        Paypal
+                                                        <input type="radio" name="payment" value="razorpay" id="paypal">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                                <% if(userdetails.wallet>=cartdetails.cart[0].grandtotal) {%>
+                                                    <div class="checkout__input__checkbox">
+                                                        <label for="wallet">
+                                                            Wallet
+                                                            <input type="radio" name="payment" value="wallet"
+                                                                id="wallet">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                    <% }else{ %>
+
+                                                        <div class="checkout__input__checkbox">
+                                                            <label for="wallet">
+                                                                Wallet
+                                                                <input disabled style="cursor:not-allowed;" type="radio"
+                                                                    name="payment" value="wallet" id="wallet">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                        <% } %>
+                                                            <div class="shoping__discount">
+                                                                <h5>Discount Codes</h5>
+                                                                <form action="#">
+                                                                    <input data-toggle="modal"
+                                                                        data-target="#exampleModalLong" type="text"
+                                                                        id="coupon" placeholder="Enter your coupon code"
+                                                                        style="
+                                        width: 228px;
+                                        height: 46px;
+                                        text-align: center;
+                                    ">
+                                                                    <div style="color: brown; size: 100px;" id="messa">
+                                                                    </div>
+
+                                                                    <button onclick="discount()" type="button"
+                                                                        class="site-btn"
+                                                                        style="background-color: black;">APPLY
+                                                                        COUPON</button>
+                                                                </form>
+                                                            </div>
+                                                            <button type="submit" class="site-btn">PLACE ORDER</button>
+                                                            <% }else{ %>
+                                                                <a href="/shop" class="site-btn">continue shop</a>
+                                                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" role="dialog">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <% if(coupons.length>0){ %>
+                    <div class="modal-body d-flex justify-content-center">
+                        <div class="d-flex align-items-center coupenbody "
+                            style=" overflow-x:scroll;scroll-behavior: smooth;background-color: darkgray;  ">
+                            <% for(let i=0;i<coupons.length;i++){ %>
+
+                                <div class=" d-flex coupencard text-center p-4 m-4 col-12"
+                                    style="box-shadow: 4px 4px 4px 4px rgb(57, 75, 75) ;min-width: 53%;">
+                                    <div class="main">
+                                        <div class="co-img">
+                                            <img src="productimages/coupon.png" alt="" />
+                                        </div>
+                                        <div class="vertical"></div>
+                                        <div class="content">
+                                            <h4
+                                                style="font-family: 'Nike Futura','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                                <%=coupons[i].couponId%>
+                                            </h4>
+                                            <h6
+                                                style="font-family: 'Nike Futura','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                                <%= coupons[i].discount %>% - <%= coupons[i].max_discount %>%<span>on
+                                                            minimum <%= coupons[i].minAmount %> - <%=
+                                                                    coupons[i].maxAmount %> </span>
+                                            </h6>
+                                            <h6
+                                                style="font-family: 'Nike Futura','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                                Valid till <%= coupons[i].expiryDate %>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="copy-button">
+                                        <input id="copyvalue" type="text" readonly value="<%= coupons[i].couponId %>" />
+                                        <button onclick="copyIt()" class="copybtn">COPY</button>
+                                    </div>
+                                </div>
+                                <%} %>
+
+
+                        </div>
+
+                    </div>
+
+                    <%}else{%>
+                        <h3 class="text-danger" style="text-align: center;">No Coupon is available !!!</h3>
+                        <% } %>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Checkout Section End -->
+
+    <!-- Footer Section Begin -->
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/a  jax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+
+
+
+        $(document).ready(function () {
+            $('#orderform').submit(function (e) {
+                e.preventDefault();
+                var error = false;
+
+                // Validate full name
+                var name = $('#name').val().trim();
+                if (!name) {
+                    $('#name-error').text('Please enter your full name');
+                    error = true;
+                    $('#name')
+                } else {
+                    $('#name-error').text('');
+                }
+
+                // Validate house name
+                var housename = $('#house').val();
+                if (!housename) {
+                    $('#house-error').text('Please enter your house name');
+                    error = true;
+                } else {
+                    $('#house-error').text('');
+                }
+
+                // Validate pincode
+                var pincode = $('#pincode').val();
+                var pincode_regex = /^[0-9]{6}$/;
+                if (!pincode || !pincode_regex.test(pincode)) {
+                    $('#pincode-error').text('Please enter a valid 6-digit pincode');
+                    error = true;
+                } else {
+                    $('#pincode-error').text('');
+                }
+
+                // Validate city
+                var city = $('#country').val();
+                if (!city) {
+                    $('#country-error').text('Please enter your city');
+                    error = true;
+                } else {
+                    $('#country-error').text('');
+                }
+
+                // Validate district
+                var district = $('#district').val();
+                if (!district) {
+                    $('#district-error').text('Please enter your district');
+                    error = true;
+                } else {
+                    $('#district-error').text('');
+                }
+                // Validate state
+                var state = $('#state').val();
+                if (!state) {
+                    $('#state-error').text('Please enter your state');
+                    error = true;
+                } else {
+                    $('#state-error').text('');
+                }
+
+                // Validate mobile number
+                var mobilenumber = $('#phone').val();
+                var mobilenumber_regex = /^[0-9]{10}$/;
+                if (!mobilenumber || !mobilenumber_regex.test(mobilenumber)) {
+                    $('#phone-error').text('Please enter a valid 10-digit mobile number');
+                    error = true;
+                } else {
+                    $('#phone-error').text('');
+                }
+
+                // Validate email
+                var email = $('#email').val();
+                var email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !email_regex.test(email)) {
+                    $('#email-error').text('Please enter a valid email address');
+                    error = true;
+                } else {
+                    $('#email-error').text('');
+                }
+                // Validate payment
+                var payment = $('input[name="payment"]:checked').val();
+                var paypal = $('#paypal:checked').val();
+
+                if (!payment && !paypal) {
+                    $('#payment-error').text('Please select a payment type');
+                    error = true;
+                } else {
+                    $('#payment-error').text('');
+                }
+
+                // Submit the form if no errors
+                if (!error) {
+                    this.submit();
+                }
+            });
+        });
+
+
+
+
+        let orderData = '<%=JSON.stringify(order)%>'
+        console.log(orderData)
+        orderData = JSON.parse(orderData.replace(/&#34;/g, '"'));
+
+        $(document).ready(() => {
+            if (orderData) {
+
+                x()
+            }
+        })
+
+
+        var options = {
+            "key": "rzp_test_13fjlwwvmTKtGb", // Enter the Key ID generated from the Dashboard
+            "amount": orderData.amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "STAR BOY",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+                success()
+            },
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9000090000"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response) {
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+        });
+        // document.getElementById('rzp-button1').onclick = function(e){
+        function x() {
+            rzp1.open();
+            e.preventDefault();
+
+        }
+
+        function success() {
+            $.ajax({
+                type: "GET",
+                url: "/razorpay",
+                contentType: 'application/json',
+                success: function (datas) {
+
+
+
+                    location.href = `/orderSucess?id=${datas.orderData._id}`
+                }
+            })
+
+        }
+
+
+
+        /////////////// discount //////////////////
+
+
+
+
+        function discount() {
+            let couponId = document.getElementById('coupon').value
+            let grandtotal = document.getElementById('grandTotal').textContent
+            let subtotal = document.getElementById('total').textContent
+
+
+            const xhttp = new XMLHttpRequest()
+
+            $.ajax({
+                type: 'post',
+                url: `/coupon`,
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({ couponId, grandtotal, subtotal }),
+                success: (data) => {
+                    console.log(data.messa)
+                    if (data.wrong != 1) {
+                        if (data.discount) {
+                            document.getElementById('percentage').innerHTML = data.discount;
+                            document.getElementById('grandTotal').innerHTML = data.discountSubtotal
+                            document.getElementById('grandsTotals').innerHTML = data.discountSubtotal
+
+                            document.getElementById('messa').innerHTML = data.messa
+                            console.log(data.messa)
+                        } else {
+                            document.getElementById('percentage').innerHTML = data.maxDiscount;
+                            document.getElementById('grandTotal').innerHTML = data.discountSubtotal
+                            document.getElementById('grandsTotals').innerHTML = data.discountSubtotal
+
+                            document.getElementById('messa').innerHTML = data.messa
+
+
+                        }
+
+
+                    } else {
+                        document.getElementById('messa').innerHTML = data.messa
+
+                    }
+                }
+            })
+        }
+
+
+
+
+
+    </script>
+    <%- include ('../layout/homefooter.ejs') %>

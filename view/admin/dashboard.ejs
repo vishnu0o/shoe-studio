@@ -1,0 +1,108 @@
+<%- include('../layout/adminheader.ejs')%>
+
+
+<style>
+  table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+
+
+
+
+<div class="container">
+
+  <div class="col-12 tm-block-col" style="margin-top: 100px;">
+    <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+        <h2 class="tm-block-title">User List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> NO.</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Status</th>
+                   
+                </tr>
+              </thead>
+              <% if (details.length > 0) { %>
+              <tbody>
+                <%  for( let i=0;i<details.length;i++){ %>
+                    <tr>
+                  <th scope="row"><%= i+1 %></th>
+                  <td><%=details[i].email%></td>
+                  <td><%=details[i].name%></td>
+                  
+
+                  <% if (details[i].is_blocked==0){ %>
+                 
+              
+                 
+                <td class="d-flex">
+                    <form action="/admin/blockuser?id=<%= details[i]._id %>" method="post">
+                      
+                      <button type="submit" class="btn btn-dark">block</button>
+                    </form>
+                   
+                </td>
+                <td>
+                  <div class="tm-status-circle moving">
+                   
+                  </div>verified
+                </td>
+                <%} else {%>
+                     
+                <td class="d-flex">
+                  <form action="/admin/unblockuser?id=<%= details[i]._id %>" method="post">
+                    
+                    <button type="submit" class="btn btn-dark">unblock</button>
+                  </form>
+                 
+              </td>
+              <td>
+                <div class="tm-status-circle cancelled">
+                 
+                </div>not verified
+              </td>
+               
+                 
+                   
+                 
+                </tr>
+                <tr>
+                    <%
+                    }
+                %>
+              </tbody>
+              <%
+            }
+        %>
+              <% }else{ %>
+              <tbody>
+                <tr>
+                    <td colspan="5" class="text-danger">don't have users</td>
+                </tr>
+              </tbody>
+             <% } %>
+            
+            </table>
+          </div>
+        </div>
+
+
+<!-- order list -->
+
+
+
+
+        
+      
+  
+   
+
+        
+
+        
+<%- include('../layout/adminfooter.ejs')%>

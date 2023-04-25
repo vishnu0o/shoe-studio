@@ -1,0 +1,287 @@
+
+<%- include ('../layout/homeheader.ejs',{loginsession}) %>
+   
+
+    
+    <!-- Header Section Begin -->
+   
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All Category</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Kid</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    All Categories
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+65 11.188.888</h5>
+                                <span>support 24/7 time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    
+    <!-- Shoping Cart Section Begin -->
+    <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <% if (cartdetails.cart.length != 0) {    %>
+
+                        <table>
+                            <thead>
+                                <tr id="cartheading">
+                                    <th class="shoping__product">Products</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+
+                                <% for( let i = 0; i < cartdetails.cart.length; i++ ) { %>
+                                
+                              
+                                <tr id="<%=cartdetails.cart[i].product._id %>">
+                                    
+                                    <td class="shoping__cart__item">
+                                        <img width="100px" height="100px" src="productimages/<%=cartdetails.cart[i].product.images[0] %>" alt="">
+                                        <h5><%=cartdetails.cart[i].product.product_name %></h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        $<%=cartdetails.cart[i].product.price%>
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <button onclick="minus('<%=cartdetails.cart[i].product._id %>')" >-</button>
+                                                   
+                                                  
+                                                                                                                          
+                                                    <input type="text" id="<%=cartdetails.cart[i].product._id%>quantity" value=<%=cartdetails.cart[i].Quantity%>>
+                                                    
+                                                        <button onclick="max('<%=cartdetails.cart[i].product._id %>','<%=cartdetails.cart[i].product.quantity_adding%>')">+</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td id="<%=cartdetails.cart[i].product._id %>price" class="shoping__cart__total">
+                                        $<%=cartdetails.cart[i].totalprice %>
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                       <button onclick="deletecart('<%=cartdetails.cart[i].product._id %>')"class="icon_close"></button>
+                                    </td>
+                                </tr>
+                                <div id="empty123" style="display: none;" class="text-center ">
+
+                                    <div  colspan="5" class="text-danger" >Missing cart items!!!!</div>
+                                </div>
+                                
+
+                                 <!-- modal for remove cart -->
+
+                                    <div class="modal" id="removecart<%=cartdetails.cart[i].product._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content" style="background-color: lightgrey;">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-danger" id="exampleModalLabel">Confirmation
+                                                        Message
+                                                    </h5>
+                                                </div>
+                                                <div class="modal-body text-danger ">
+                                                    Are you sure do you want to remove the Item ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+                                                    <button onclick="removecart('<%=cartdetails.cart[i].product._id %>')" type="button" class="btn btn-secondary" data-dismiss="modal">Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                    </div> 
+                             
+                               <% } %>
+                               
+                            
+                               <% }else{ %>
+                                <tr>
+                                    <div  colspan="5" class="text-center text-danger">Missing cart items!!!!</div>
+                                    
+                                </tr>
+                              <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="shoping__cart__btns">
+                        <a href="/shop" class="primary-btn "><span class="icon_loading"></span>  CONTINUE SHOPPING</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>Cart Total</h5>
+                        <% if (cartdetails.cart.length != 0) { %>
+                         
+
+                        <ul>
+                           
+                            <li>Grandtotal<span id="grandtotal"><%=cartdetails.cart[0].grandtotal%></span><span>₹</span></li>
+                            
+                        </ul>
+                       
+                         <a href="/checkout"  class="primary-btn">PROCEED TO CHECKOUT</a>
+                 
+                        <% }else{ %>
+
+                            <ul>
+                           
+                                <li>Subtotal <span id="total">₹00.00</span></li>
+                                <li>Total <span>₹00.00</span></li>
+                                
+                            </ul>
+                           
+                            <% } %>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: lightgrey;">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="exampleModalLabel">Order Status
+                        Update
+                    </h5>
+                </div>
+                <div class="modal-body text-danger ">
+                    Product is Out of Stock
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+            </div>
+        </div>
+    
+      </div>
+      
+
+     
+
+    <!-- Shoping Cart Section End -->
+
+    <!-- Footer Section Begin -->
+    
+    <!-- Footer Section End -->
+
+    <%- include ('../layout/homefooter.ejs') %>
+
+       
+    <script>
+        function deletecart(id){
+$('#removecart'+ id).modal('show') 
+}
+
+  </script>
+          
+    <script>
+
+  
+
+     // Increment function
+    const max=function(id,stock) {
+        const quantity =  $(`#${id}quantity`).val()
+        if(Number(quantity)<Number(stock)){
+       
+      $.ajax({
+        type: "post",
+        url: "/increment",
+        dataType:'json',
+        contentType:'application/json',
+        data:JSON.stringify({ id: id }),
+        success: function(data) {
+        if(data.id==id){
+            $(`#${id}price`).text(data.totalFind)
+            $(`#grandtotal`).text(data.findTotal)
+            $(`#${id}quantity`).val(data.x)
+    
+    
+        }
+          console.log(data);
+        },
+       
+      });
+    }else{
+
+        $('#modalbody').text('Out of Stock')
+        $('#exampleModal').modal('show')
+    }
+    }
+    
+    // Decrement function
+    const minus =function(id) {
+        console.log('hftvftfv');
+      $.ajax({
+        type: "post",
+        url: "/decrement",
+        contentType:'application/json',
+        data:JSON.stringify({ id: id }),
+        success: function(datas) {
+          if(datas.id==id){
+            $(`#${id}price`).text(datas.totalFind)
+            $(`#grandtotal`).text(datas.findTotal)
+             $(`#${id}quantity`).val(datas.y)
+    
+          }
+          console.log(datas);
+        },
+        
+      });
+    }
+       </script>

@@ -1,0 +1,318 @@
+<%- include('../layout/adminheader.ejs') -%>
+  
+  <div class="container tm-mt-big tm-mb-big">
+    <div class="row">
+      <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+        <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="tm-block-title d-inline-block">Edit Product</h2>
+            </div>
+          </div>
+          <div class="row tm-edit-product-row">
+            <div class="col-xl-6 col-lg-6 col-md-12">
+              <form action="/admin/editproducts?id=<%=list._id%>" id="form1" class="tm-edit-product-form" method="post"
+                enctype="multipart/form-data">
+                <div class="form-group mb-3">
+                  <label for="name">Product Name
+                  </label>
+                  <input id="name" name="name" type="text" value="<%=list.product_name%>" class="form-control validate"
+                     />
+                     <small class="text-danger error"></small>
+                    </div>
+                <div class="form-group mb-3">
+                  <label for="name">Brand
+                  </label>
+                  <input id="brand" name="brand" type="text" value="<%=list.brand%>" class="form-control validate"
+                     />
+                     <small class="text-danger error"></small>
+
+                </div>
+                <div class="form-group mb-3">
+                  <label for="description"> Product Description</label>
+                  <input id="description" name="description" type="text" value="<%=list.product_description%>"
+                    class="form-control validate" , style="height: 100px;" />
+                    <small class="text-danger error"></small>
+
+
+                </div>
+                <div class="form-group mb-3">
+                  <label for="category">Category</label>
+                  <select class="custom-select tm-select-accounts" name="category" id="category">
+                    <option selected>
+                      <%=list.category.categoryname %>
+                    </option>
+                    <% for( let i=0; i < category.length; i++ ) { %>
+                      <option value="<%=category[i].categoryname %>">
+                        <%=category[i].categoryname %>
+                      </option>
+                      <% } %>
+
+                  </select>
+
+
+
+                </div>
+                <div class="row">
+                  <div class="form-group mb-3 col-xs-12 col-sm-6">
+                    <label for="expire_date">Price
+                    </label>
+                    <input id="price" name="price" type="text" value="<%=list.price%>" class="form-control validate"
+                      data-large-mode="true" />
+                      <small class="text-danger error"></small>
+
+                  </div>
+                  <div class="form-group mb-3 col-xs-12 col-sm-6">
+                    <label for="stock">Quantity adding
+                    </label>
+                    <input id="stock" name="quantity" type="text" value="<%=list.quantity_adding%>"
+                      class="form-control validate"  />
+                      <small class="text-danger error"></small>
+
+                  </div>
+                  <div class="form-group mb-3 col-xs-12 col-sm-6">
+                    <label for="color">Color
+                    </label>
+                    <input id="color" name="color" type="text" value="<%=list.color%>" class="form-control validate"
+                       />
+                       <small class="text-danger error"></small>
+
+                  </div>
+                  <div class="form-group mb-3 col-xs-12 col-sm-6">
+                    <label for="style">Style
+                    </label>
+                    <input id="style" name="style" type="text" value="<%=list.style%>" class="form-control validate"
+                       />
+                       <small class="text-danger error"></small>
+
+                  </div>
+                </div>
+                <p class=" mb-4 text-white">SIZE</p>
+                        <div class="mt-3"><%for(let i=0;i<list.size.length;i++){ %>
+
+                          <p style=" display: none;" class="size-check"><% list.size[i] %></p><% } %>
+                          <input class="p-2" type="checkbox" name="size" value="xs">
+                          <label class="p-2" for="">XS</label>
+                          <input class="p-2" type="checkbox" name="size" value="s">
+                          <label class="p-2" for="">S</label>
+                          <input class="p-2" type="checkbox" name="size" value="m">
+                          <label class="p-2" for="">M</label>
+                          <input class="p-2" type="checkbox" name="size" value="xl">
+                          <label class="p-2" for="">XL</label>
+                          <input class="p-2" type="checkbox" name="size" value="xxl">
+                          <label class="p-2" for="">XXL</label>
+    
+    
+                        </div>
+               
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+            <style>
+              /* Style for image preview */
+              .image-preview {
+                max-width: 100px;
+                max-height: 100px;
+                margin: 10px;
+              }
+            </style>  
+
+                  <div  class="row">
+                  <% list.images.forEach(element => { %>
+
+                    <div class="col-3 m-1 justify-content-end " id="<%= element %>" style="background-image: url('/productimages/<%= element %>'); width: 100px; height: 100px; background-size: cover; display: flex;">
+                      <div class="circle-container">
+                        <a href="#" onclick="imgRemove('<%= element %>','<%= list._id %>')">
+                          <i class="fa fa-trash text-dark" style="  font-size: 12px;"></i>
+                        </a>
+                      </div>
+                    </div>
+                  <%})%>
+                </div>
+                <div class="custom-file mt-3 mb-3">
+                  <input name="images" id="fileInput" type="file" style="display:none;" multiple/>
+                  <input
+                  id="file"
+                    type="button"
+                    class="btn btn-primary btn-block mx-auto"
+                    value="UPLOAD PRODUCT IMAGE"
+                    onclick="document.getElementById('fileInput').click();"
+                  />
+                  <small class="text-danger error"></small>
+    
+                </div>
+                <div >
+                  <% if(typeof message !=='undefined' ){ %>
+                    <p style="color:rgb(255, 0, 0);">
+                      <%=message %>
+                    </p>
+                    <% } %>
+                </div>
+          </div>
+         
+          
+          
+          
+          
+          
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block text-uppercase">Update Product Now</button>
+          </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <footer class="tm-footer row tm-mt-small">
+    <div class="col-12 font-weight-light">
+      <p class="text-center text-white mb-0 px-4 small">
+        Copyright &copy; <b>2018</b> All rights reserved.
+
+        Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    
+  const form=document.getElementById('form1')
+  const name1=document.getElementById('name')
+  const brand=document.getElementById('brand')
+  const description=document.getElementById('description')
+  const price=document.getElementById('price')
+  const stock=document.getElementById('stock')
+  const color=document.getElementById('color')
+  const size=document.getElementById('size')
+  const file=document.getElementById('fileInput')
+  
+  const seterror=(element,message)=>{
+      const inputControll=element.parentElement;
+      const errorDisplay=inputControll.querySelector('.error')
+
+      errorDisplay.innerText=message
+      inputControll.classList.add('error')
+      inputControll.classList.remove('success')
+    }
+    const setSuccess=(element)=>{
+      const inputControll=element.parentElement;
+      const errorDisplay=inputControll.querySelector('.error')
+
+      errorDisplay.innerText=''
+      inputControll.classList.remove('success')
+      inputControll.classList.add('error')
+    }
+  form.addEventListener('submit',e=>{
+      const productname=name1.value.trim()
+      const productbrand=brand.value.trim()
+      const productdescription=description.value.trim()
+      const productprice=price.value.trim()
+      const productstock=stock.value.trim()
+      const productcolor=color.value.trim()
+      const productfile=file.value.trim()
+      console.log();
+      
+      ////TITLE///
+     
+if(productname==''){
+  seterror(name1,'This field requred')
+  e.preventDefault()
+}else {
+  setSuccess(name1)
+}
+//////SROCK/////
+if(productbrand==''){
+  seterror(brand,'This field requred')
+  e.preventDefault()
+}else {
+  setSuccess(brand)
+}
+/////BRAND////
+if(productdescription==''){
+  seterror(description,'This field requred')
+  e.preventDefault()
+}else {
+  setSuccess(description)
+}
+////////PRICE/////
+if(productprice==''){
+  seterror(price,'This field requred')
+  e.preventDefault()
+}else if(productprice<=0){
+  seterror(price,'Invalid input')
+  e.preventDefault()
+}
+else {
+  setSuccess(price)
+}
+///////DISCOUNT////
+if(productstock==''){
+  seterror(stock,'This field requred')
+  e.preventDefault()
+}
+else if(productstock<=0){
+  seterror(stock,'Invalid input')
+  e.preventDefault()
+}else {
+  setSuccess(stock)
+}
+/////DISCRIPTION/////
+if(productcolor==''){
+  seterror(color,'This field requred')
+  e.preventDefault()
+}else {
+  setSuccess(color)
+}
+
+// if(productfile==''){
+  
+//   seterror(file,'This field requred')
+//   e.preventDefault()
+// }else {
+//   setSuccess(file)
+// }
+
+
+
+/////
+
+
+  })
+
+
+
+  function imgRemove(file, productId) {
+  $.ajax({
+    url: `/admin/product/image-remove?file=${file}&productId=${productId}`,
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json',
+    success: function(data) {
+      console.log('fmmf', document.getElementById(`${file}`));
+      document.getElementById(`${file}`).style.display = 'none';
+      $('#myModal').modal('show');
+      setTimeout(function() {
+        $('#myModal').modal('hide');
+      }, 5000);
+    },
+    error: function(error) {
+      console.error(error);
+    }
+  });
+}
+
+
+
+let size_checkbox = document.getElementsByClassName('size_check')
+      let checkbox = document.getElementsByName('size')
+
+for (let i = 0 ; i < size_checkbox.length;i++){
+        if(checkbox[i].value == size_checkbox[i].innerText){
+          checkbox[i].checked = true
+        }else{
+          console.log('LL');
+ }}
+
+</script>
+
+  <%- include('../layout/adminfooter.ejs') -%>

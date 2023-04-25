@@ -1,0 +1,136 @@
+<%- include('../layout/homeheader.ejs',{loginsession}); -%>
+<style>
+    body {
+        background: #f7f7ff;
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid transparent;
+        border-radius: .25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+    }
+
+    .me-2 {
+        margin-right: .5rem !important;
+    }
+</style>
+
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4><%=userdetails.name%></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card1">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form method="post" action="/updateprofile" class="colorlib-form" id="orderform">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="text" id="name" name="name" class="form-control"
+                                                    placeholder="Your name" value="<%=userdetails.name  %>" >
+                                                <span id="name-error"  class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="Phone">Email</label>
+                                                <input type="email" id="email" name="email"
+                                                    class="form-control" placeholder="Email" value="<%= userdetails.email %>" >
+                                                <span id="email-error" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                      
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="Phone">Mobile Number</label>
+                                                <input type="number" id="phone" name="mobile"
+                                                    class="form-control" placeholder="Mobile" value="<%=userdetails.mobile  %>" >
+                                                <span id="mobile-error" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-success" type="submit">Submit</button>
+
+                                </form>
+                            </div>
+                            <div class="col-lg-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+   
+</div>
+<%- include('../layout/homefooter.ejs'); -%>
+<script>
+     $(document).ready(function() {
+       $('#orderform').submit(function(e) {
+        e.preventDefault();
+        var error = false;
+    
+        // Validate full name
+        var name = $('#name').val().trim();
+          if (!name) {
+            $('#name-error').text('Please enter your full name');
+            error = true;
+            $('#name')
+        } else {
+          $('#name-error').text('');
+        }
+        
+        // Validate mobile number
+        var mobilenumber = $('#phone').val();
+        var mobilenumber_regex = /^[0-9]{10}$/;
+        if (!mobilenumber || !mobilenumber_regex.test(mobilenumber)) {
+          $('#mobile-error').text('Please enter a valid 10-digit mobile number');
+          error = true;
+        } else {
+          $('#mobile-error').text('');
+        }
+    
+        // Validate email
+        var email = $('#email').val();
+        var email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !email_regex.test(email)) {
+          $('#email-error').text('Please enter a valid email address');
+          error = true;
+        } else {
+          $('#email-error').text('');
+        }
+  
+        
+        // Submit the form if no errors
+        if (!error) {
+          this.submit();
+        }
+      });
+    });
+</script>

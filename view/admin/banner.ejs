@@ -1,0 +1,230 @@
+<%- include('../layout/adminheader.ejs') -%>
+<div class="container tm-mt-big tm-mb-big">
+  <div class="row">
+    <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+      <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="tm-block-title d-inline-block">Add Product</h2>
+          </div>
+        </div>
+
+            
+            <% if(message !=null ) {%>
+              <script>
+                swal({  
+                  title: "Alert",  
+                  text: "<%=message%>",  
+                  icon: "warning",  
+                  button: "oh yes!",
+                    
+                });  
+              </script>
+     
+           <%  }%>
+           <% if(mess !=null ) {%>
+            <script>
+              swal({  
+                title: "Good job!",  
+                text: "<%=mess%>",  
+                icon: "success",  
+                button: "oh yes!",
+                  
+              });  
+            </script>
+   
+         <%  }%>
+
+
+            <div class="row tm-edit-product-row">
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <form action="/admin/addbanner" method="post" id="form1" enctype="multipart/form-data" class="tm-edit-product-form">
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >Header
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      class="form-control validate"
+                     
+                    />
+                    <small class="text-danger error"></small>
+
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >Banner text upper
+                    </label>
+                    <input
+                      id="brand"
+                      name="textupper"
+                      type="text"
+                      class="form-control validate"
+                    
+                    />
+                    <small class="text-danger error"></small>
+
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="description"
+                      > Banner Description</label
+                    >
+                    <textarea
+                      id="description"
+                      name="description"
+                      type="text"
+                      class="form-control validate"
+                     
+                      style="height: 100px;"
+                    
+                    >
+                    </textarea>
+                    <small class="text-danger error"></small>
+
+                    
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="textdown"
+                      >Banner text down</label
+                    >
+                    <input
+                    id="banner_text_down"
+                    name="textdown"
+                    type="text"
+                    class="form-control validate"
+                 
+                  />
+                  <small class="text-danger error"></small>
+
+
+                  </div>
+                  </div>
+                  
+             
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                <div class="tm-product-img-dummy mx-auto">
+                  <i
+                    class="fas fa-cloud-upload-alt tm-upload-icon"
+                    onclick="document.getElementById('fileInput').click();"
+                  ></i>
+                </div>
+                <div class="custom-file mt-3 mb-3">
+                  <input name="images" id="fileInput" type="file" style="display:none;" multiple/>
+                  <input
+                  id="file"
+                    type="button"
+                    class="btn btn-primary btn-block mx-auto"
+                    value="UPLOAD PRODUCT IMAGE"
+                    onclick="document.getElementById('fileInput').click();"
+                  />
+                  <small class="text-danger error"></small>
+
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Banner Now</button>
+              </div>
+            </form>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="tm-footer row tm-mt-small">
+        <div class="col-12 font-weight-light">
+          <p class="text-center text-white mb-0 px-4 small">
+            Copyright &copy; <b>2018</b> All rights reserved. 
+            
+            Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+        </p>
+        </div>
+    </footer> 
+
+    <script>
+      
+      const form=document.getElementById('form1')
+      const name1=document.getElementById('name')
+      const brand=document.getElementById('brand')
+      const description=document.getElementById('description')
+      const bannertextdown=document.getElementById('banner_text_down')
+      
+      const file=document.getElementById('fileInput')
+    
+    
+      const seterror=(element,message)=>{
+          const inputControll=element.parentElement;
+          const errorDisplay=inputControll.querySelector('.error')
+    
+          errorDisplay.innerText=message
+          inputControll.classList.add('error')
+          inputControll.classList.remove('success')
+        }
+        const setSuccess=(element)=>{
+          const inputControll=element.parentElement;
+          const errorDisplay=inputControll.querySelector('.error')
+    
+          errorDisplay.innerText=''
+          inputControll.classList.remove('success')
+          inputControll.classList.add('error')
+        }
+      form.addEventListener('submit',e=>{
+          const productname=name1.value.trim()
+          const productbrand=brand.value.trim()
+          const productdescription=description.value.trim()
+          const Banner_text_down=bannertextdown.value.trim()
+          const productfile=file.value.trim()
+          console.log();
+          
+          ////TITLE///
+         
+    if(productname==''){
+      seterror(name1,'This field requred')
+      e.preventDefault()
+    }else {
+      setSuccess(name1)
+    }
+    //////SROCK/////
+    if(productbrand==''){
+      seterror(brand,'This field requred')
+      e.preventDefault()
+    }else {
+      setSuccess(brand)
+    }
+    /////BRAND////
+    if(productdescription==''){
+      seterror(description,'This field requred')
+      e.preventDefault()
+    }else {
+      setSuccess(description)
+    }
+    ////////PRICE/////
+    if(Banner_text_down==''){
+      seterror(bannertextdown,'This field requred')
+      e.preventDefault()
+    }
+    else {
+      setSuccess(bannertextdown)
+    }
+    
+    
+    
+    /////
+    if(productfile==''){
+    
+      seterror(file,'This field requred')
+      e.preventDefault()
+    }else {
+      setSuccess(file)
+    }
+    
+      })
+    </script>
+    
+ <%- include('../layout/adminfooter.ejs') -%>
