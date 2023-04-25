@@ -1,0 +1,331 @@
+[{
+  "_id": {
+    "$oid": "642eb9d50ed7dc7d5d434b9f"
+  },
+  "product_name": "Air Jordan Legacy 312 ",
+  "brand": "jordan",
+  "product_description": "Looks Max, feels Max. The Air Max SYSTM brings back everything you love about your favourite '80s vibes (without the parachute trousers). Tried-and-tested visible Nike Air cushioning pairs with a sleek, sport-inspired upper. It's Air Max delivering again.           ",
+  "category": {
+    "$oid": "642ad9339fa78f3314acb76b"
+  },
+  "price": 1245,
+  "quantity_adding": 0,
+  "color": " Cherrywood Red/White/Sail/Fossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "xl",
+    "xxl"
+  ],
+  "images": [
+    "1682081151781-1679682253138-productimage2.webp",
+    "1682081151781-1679682253140-productimages1.webp",
+    "1682081151782-1679682253140-productimages3.webp",
+    "1682081151783-1679682253141-productimages4.webp",
+    "1682081151783-1679682253141-productimages5.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 11
+},{
+  "_id": {
+    "$oid": "642ebb3a411d3a2f2a35c82e"
+  },
+  "product_name": "Nike Air Max SYST",
+  "brand": "addidas",
+  "product_description": "The radiance lives on in the Nike Air Force 1 '07, the b-ball icon that puts a fresh spin on what you know best: crisp leather, bold colours and the perfect amount of flash to make you shine. Textured, pebbly leather with classic blue and fresh white adds heritage style, durability and support.                   ",
+  "category": {
+    "$oid": "6416c43f7315d453d288217c"
+  },
+  "price": 6758,
+  "quantity_adding": 0,
+  "color": " CherrywoodRed WhiteSailFossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1681973097886-1679682310045-product2image1.webp",
+    "1681973097886-1679682310046-product2image3.webp",
+    "1681975382118-1679682310046-product2image2.webp",
+    "1681975382119-1679682310046-product2image4.webp",
+    "1681975382119-1679682310046-product2image5.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "642ebb8e411d3a2f2a35c833"
+  },
+  "product_name": "Nike Air Force 1 '07",
+  "brand": "puma",
+  "product_description": "   The radiance lives on in the Nike Air Force 1 '07, the b-ball icon that puts a fresh spin on what you know best: crisp leather, bold colours and the perfect amount of flash to make you shine. Textured, pebbly leather with classic blue and fresh white adds heritage style, durability and support.                 ",
+  "category": {
+    "$oid": "6416c43f7315d453d288217c"
+  },
+  "price": 8990,
+  "quantity_adding": -1,
+  "color": " CherrywoodRed WhiteSailFossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "s",
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1680784270553-product5.1.webp",
+    "1680784270554-product5.2.jpg",
+    "1680784270555-product5.3.webp",
+    "1680784270555-product5.4.webp",
+    "1680784270555-product5.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642ebc26411d3a2f2a35c838"
+  },
+  "product_name": "Nike SB Force 58",
+  "brand": "jordan",
+  "product_description": " The latest and greatest innovation to hit the streets, the Nike SB Force 58 gives you the durability of a cupsole with the flexibility of a vulcanised shoe. Made from canvas and suede and finished with perforations, the whole look is infused with heritage basketball DNA.                   ",
+  "category": {
+    "$oid": "642ad9339fa78f3314acb76b"
+  },
+  "price": 5678,
+  "quantity_adding": 1,
+  "color": " CherrywoodRed WhiteSailFossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "s",
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1680784422902-product6.webp",
+    "1680784422903-product6image1.webp",
+    "1680784422903-product6image2.webp",
+    "1680784422904-product6image4.webp",
+    "1680784422904-product6image5.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642ebcce411d3a2f2a35c83d"
+  },
+  "product_name": "Jordan Nu Retro 1 Low",
+  "brand": "Nike",
+  "product_description": "   Twenty years later and these low tops are back. Inspired by the original Wings logo and design of the Jordan 1, these all-day, everyday shoes are ready for whatever. Rock 'em with some baggy jeans, skate in 'em or just look fly—it's up to you. Smooth leather uppers and a big embossed logo will help you stand out whether you're dressed up or down.                 ",
+  "category": {
+    "$oid": "642ad9339fa78f3314acb76b"
+  },
+  "price": 5678,
+  "quantity_adding": 53,
+  "color": "White/Gym Red/Black",
+  "style": "DN1856621",
+  "size": [
+    "xs",
+    "s",
+    "m"
+  ],
+  "images": [
+    "1680784590579-product7image1.webp",
+    "1680784590579-product7image2.webp",
+    "1680784590579-product7image3.webp",
+    "1680784590579-product7image4.webp",
+    "1680784590585-product7image5.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642ebd86411d3a2f2a35c842"
+  },
+  "product_name": "Nike Dunk Low Retro QS",
+  "brand": "addidas",
+  "product_description": "    Some say distance makes the heart grow fonder. In the case of this iconic Dunk, a truer sentiment was never spoken. Once a Japan-only exclusive—IYKYK—the coveted Argon colourway is now yours for the taking. The tonal blues are back, with smooth leather and all the original details you love. So go ahead and say it: GOT 'EM.                ",
+  "category": {
+    "$oid": "642ad9339fa78f3314acb76b"
+  },
+  "price": 1245,
+  "quantity_adding": 53,
+  "color": " CherrywoodRed WhiteSailFossil Stone",
+  "style": "DN1856621",
+  "size": [
+    "s",
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1680784774840-product8image1.webp",
+    "1680784774841-product8image2.webp",
+    "1680784774841-product8image3.webp",
+    "1680784774847-product8image4.webp",
+    "1680784774847-product8image5.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64301d087689099a96c9280b"
+  },
+  "product_name": "Air Jordan 312 0'l",
+  "brand": "jordan",
+  "product_description": "   jbvobdsobvocbdso                 ",
+  "category": {
+    "$oid": "6416c43f7315d453d288217c"
+  },
+  "price": 1245,
+  "quantity_adding": 37,
+  "color": " CherrywoodRed WhiteSailFossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "s",
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1680874760094-1680261503097-1679923923620-product3image1.jpg",
+    "1680874760096-1680261503097-1679923923621-product3image3.webp",
+    "1680874760097-1680261503099-1679923923624-product3image4.jpg"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64369a41a1084712e808a6f6"
+  },
+  "product_name": "Jordan Air 0'8",
+  "brand": "jordan",
+  "product_description": "  Looks Max, feels Max. The Air Max SYSTM brings back everything you love about your favourite '80s vibes (without the parachute trousers). Tried-and-tested visible Nike Air cushioning pairs with a sleek, sport-inspired upper. It's Air Max delivering again.                                      ",
+  "category": {
+    "$oid": "642ad9339fa78f3314acb76b"
+  },
+  "price": 1245,
+  "quantity_adding": 46,
+  "color": " CherrywoodRed WhiteSailFossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "s",
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1681300033065-1679682253138-productimage2.webp",
+    "1681300033066-1679682253140-productimages1.webp",
+    "1681300033066-1679682253140-productimages3.webp",
+    "1681300033066-1679682253141-productimages4.webp",
+    "1681300033066-1679682253141-productimages5.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643ea8ce5a273cedd53a01ed"
+  },
+  "product_name": "Air Jordan Legacy 312 Low",
+  "brand": "puma",
+  "product_description": "\"Everybody who knows me knows that my love for St. Louis runs deep … \" So deep that we made a special-edition colourway to celebrate Jay's hometown. The bold combo of red and white will make anyone from The Lou do a double-take. Fleur-de-lis designs on the heel and insole nod to the city's                    ",
+  "category": {
+    "$oid": "6416c43f7315d453d288217c"
+  },
+  "price": 1245,
+  "quantity_adding": 39,
+  "color": " CherrywoodRed WhiteSailFossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1681973137713-1679718425414-product3image1.jpg",
+    "1681973137714-1679718425416-product3image2.webp",
+    "1681975276513-1679682310045-product2image1.webp",
+    "1681975276516-1679682310046-product2image2.webp",
+    "1681975276518-1679682310046-product2image3.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6447eab5d34b0dbca766fabb"
+  },
+  "product_name": "Nike Court Vision Low",
+  "brand": "addidas",
+  "product_description": "     The fastbreak style of '80s basketball meets the fast-paced culture of today's game, with the new Nike Court Vision Low. It has an upper inspired by old-school hoops sneakers and the classic rubber cupsole featured on some of the most iconic silhouettes of the past.               ",
+  "category": {
+    "$oid": "642ad9339fa78f3314acb76b"
+  },
+  "price": 5695,
+  "quantity_adding": 44,
+  "color": " Cherrywood Red/White/Sail/Fossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "m",
+    "xl",
+    "xxl"
+  ],
+  "images": [
+    "1682434741534-productimages10.1.webp",
+    "1682434741534-productimages10.2.webp",
+    "1682434741534-productimages10.3.webp",
+    "1682434741535-productimages10.4.webp",
+    "1682434741535-productimages10.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6447ebf5d34b0dbca766face"
+  },
+  "product_name": "Nike Air Force 1 '07 LX",
+  "brand": "Addias",
+  "product_description": "             Take your love for the game with you wherever you go. Crossing hardwood comfort with off-court flair, these kicks put a fresh spin on a hoops classic with washed-out neon colours and classic paisley print.       ",
+  "category": {
+    "$oid": "642ad9339fa78f3314acb76b"
+  },
+  "price": 12344,
+  "quantity_adding": 56,
+  "color": " CherrywoodRed WhiteSailFossil Stone",
+  "style": "DN1856-621",
+  "size": [
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1682435061362-product11.1.webp",
+    "1682435061362-product11.2.webp",
+    "1682435061363-product11.3.jpeg",
+    "1682435061363-product11.5.webp",
+    "1682435061364-product11.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6447ecbfd34b0dbca766fad9"
+  },
+  "product_name": "Air Jordan 1 Zoom CMFT 2",
+  "brand": "jordan",
+  "product_description": "   Premium suede and Jordan Brand's signature Formula 23 foam come together to give you an extra luxurious (and extra cosy) AJ1. You don't need to play \"either or\" when it comes to choosing style or                 ",
+  "category": {
+    "$oid": "6416c43f7315d453d288217c"
+  },
+  "price": 8990,
+  "quantity_adding": 5,
+  "color": "White/Gym Red/Black",
+  "style": "DN1856621",
+  "size": [
+    "s",
+    "m",
+    "xl"
+  ],
+  "images": [
+    "1682435263777-productimages12.1.webp",
+    "1682435263777-productimages12.2.jpeg",
+    "1682435263778-productimages12.3.webp",
+    "1682435263778-productimages12.4.webp",
+    "1682435263778-productimages12.webp"
+  ],
+  "is_deleted": 0,
+  "__v": 0
+}]

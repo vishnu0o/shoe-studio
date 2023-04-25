@@ -6,6 +6,7 @@ const nocache=require('nocache')
 const  morgan = require('morgan')
 app.use(nocache())
 app.use(morgan('dev'));
+const env = require('dotenv').config();
 ///////////user route/////
 const user_route=require('./routes/userRoute')
 
@@ -15,12 +16,12 @@ const admin_route=require('./routes/adminroute')
 
 /////////////// 404/////////////
 const error_route=require('./routes/404page')
+const { log } = require('console')
 
 
 mongoose.set('strictQuery', false)
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/user_managment_system',(err)=>{
+mongoose.connect(process.env.url,(err)=>{
     if (err) {
       console.log('database not connected')  
     }
@@ -38,6 +39,6 @@ app.use((err,req,res,next)=>{
    res.status()
 })
 
-app.listen(3000,()=>{
+app.listen(process.env.port,()=>{
     console.log('server is running....')
 })

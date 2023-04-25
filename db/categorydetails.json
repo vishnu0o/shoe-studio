@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6416c43f7315d453d288217c"
+  },
+  "categoryname": "men",
+  "__v": 0,
+  "is_deleted": 0
+},{
+  "_id": {
+    "$oid": "642ad9339fa78f3314acb76b"
+  },
+  "categoryname": "kids",
+  "is_deleted": 0,
+  "__v": 0
+}]

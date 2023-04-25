@@ -1,0 +1,86 @@
+[{
+  "_id": {
+    "$oid": "6433a51cb1786a77a682eefb"
+  },
+  "name": "vishnu",
+  "email": "vishnuvenugopal674@gmail.com",
+  "mobile": "7306758046",
+  "password": "$2b$10$KQQwagRnjodKwGn4.fS07.yiVQeidmOKQ74mZR./FVJjkvGhsPDcO",
+  "is_admin": 0,
+  "is_verified": 1,
+  "is_blocked": 0,
+  "cart": [
+    {
+      "product": {
+        "$oid": "64301d087689099a96c9280b"
+      },
+      "Quantity": 1,
+      "totalprice": 1245,
+      "grandtotal": 1245,
+      "_id": {
+        "$oid": "6447e0cb18a433369b4b747f"
+      }
+    }
+  ],
+  "wishlist": [
+    {
+      "product": {
+        "$oid": "642ebb3a411d3a2f2a35c82e"
+      },
+      "_id": {
+        "$oid": "644533c57e973c3919ed80b4"
+      }
+    },
+    {
+      "product": {
+        "$oid": "642ebb8e411d3a2f2a35c833"
+      },
+      "_id": {
+        "$oid": "644533fc7e973c3919ed812e"
+      }
+    },
+    {
+      "product": {
+        "$oid": "642ebc26411d3a2f2a35c838"
+      },
+      "_id": {
+        "$oid": "644534137e973c3919ed815c"
+      }
+    }
+  ],
+  "address": [
+    {
+      "name": "Vishnu V",
+      "houseName": "Geethabhavan kottathala p O kottarakara, Kottathala, Kottathala",
+      "townCity": "Kottarakara",
+      "district": "kollam",
+      "state": "Kerala",
+      "pincode": "691507",
+      "mobileNo": {
+        "$numberLong": "7306758046"
+      },
+      "email": "vishnuvenugopal674@gmail.com",
+      "_id": {
+        "$oid": "643d570a42011c9c5c1185f2"
+      }
+    },
+    {
+      "name": "vishnu v",
+      "houseName": "brototype kakkanchery malapuram p.o, kerala",
+      "townCity": "malapuram",
+      "district": "malapuram",
+      "state": "kerala",
+      "pincode": "691507",
+      "mobileNo": {
+        "$numberLong": "7306758046"
+      },
+      "email": "vishnuvenugopal674@gmail.com",
+      "_id": {
+        "$oid": "643fb2626a2c91fa6d40844d"
+      }
+    }
+  ],
+  "__v": 59,
+  "discountedTotal": 0,
+  "wallet": 2490
+}]

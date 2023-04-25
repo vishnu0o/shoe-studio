@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "64425c3217c6e611d582c830"
+  },
+  "couponId": "diwali500",
+  "couponName": "diwalisale",
+  "expiryDate": "2023-04-26",
+  "maxAmount": 2000,
+  "minAmount": 500,
+  "discount": 10,
+  "status": true,
+  "max_discount": 30,
+  "ref": "6433a51cb1786a77a682eefb",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64425c7017c6e611d582c834"
+  },
+  "couponId": "first50",
+  "couponName": "first50",
+  "expiryDate": "2023-04-26",
+  "maxAmount": 100,
+  "minAmount": 500,
+  "discount": 10,
+  "status": true,
+  "max_discount": 30,
+  "ref": "6433a51cb1786a77a682eefb",
+  "__v": 0
+}]

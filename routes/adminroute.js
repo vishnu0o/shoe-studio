@@ -1,10 +1,11 @@
 const express = require('express')
 const admin_route= express()
 const session = require('express-session')
-const config = require("../config/config")
+// const config = require("../config/config")
+const env = require('dotenv').config()
 const multer = require('multer')
 const path = require('path')
-admin_route.use(session({secret:config.sessionsecret,resave:false,saveUninitialized:false}))
+admin_route.use(session({secret:process.env.sessionsecret,resave:false,saveUninitialized:false}))
 
 const adminauth = require('../middleware/adminauth')
 const bodyparser=require('body-parser')
