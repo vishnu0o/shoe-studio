@@ -54,7 +54,7 @@ const sendverifymail = async (name, email, user_id) => {
             from: 'shoestudio195@gmail.com',
             to: email,
             subject: 'For email verification',
-            html: '<p>Hi ' + name + ', please click here to <a href="shoestudio.store/verify?id=' + user_id + '">verify</a> your mail.</p>'
+            html: '<p>Hi ' + name + ',f please click here to <a href="shoestudio.store/verify?id=' + user_id + '">verify</a> your mail.</p>'
         }
         transporter.sendMail(mailoptions, function (error, info) {
             if (error) {
