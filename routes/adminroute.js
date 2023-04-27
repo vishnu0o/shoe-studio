@@ -20,7 +20,7 @@ admin_route.use(bodyparser.urlencoded({extended:true}))
 const storage = multer.diskStorage({
    destination:function(req,file,cb){
       
-      cb(null,'./public/productimages/temp',function(err,sucess){
+      cb(null,'./public/productimages',function(err,sucess){
          if(err){
             throw err
          }

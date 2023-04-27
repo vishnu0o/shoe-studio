@@ -229,41 +229,8 @@ const add_product = async (req, res) => {
         for (let i = 0; i < req.files.length; i++) {
             const extension = req.files[i].filename.split('.').pop().toLowerCase(); // get the file extension
             if (validExtensions.includes(extension)) { // check if the file extension is valid
-                let image = req.files.map((file) => file);
-                console.log(image, 'ldshfaidhsfo');
-                for (i = 0; i < req.files.length; i++) {
-                    let path = image[i].path;
-                    const processImage = new Promise((resolve, reject) => {
-                        sharp(path)
-                            .rotate()
-                            .resize(864, 1080)
-                            .toFile("public/productimages/" + image[i].filename, (err) => {
-                                sharp.cache(false);
-                                if (err) {
-                                    console.log(err);
-                                    reject(err);
-                                } else {
-                                    console.log(`Processed file: ${path}`);
-                                    resolve();
-                                }
-                            });
-                    });
-                    processImage
-                        .then(() => {
-                            fs.unlink(path, (err) => {
-                                if (err) {
-                                    console.log(err);
-                                } else {
-                                    console.log(`Deleted file: ${path}`);
-                                }
-                            });
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
-
-                }
-                // images.push(req.files[i].filename); // add the image filename to the array
+                if(req.files.length == i ) break;
+                images[i] = req.files[i].filename;      
 
             } else {
                 message = 'Invalid Format';
